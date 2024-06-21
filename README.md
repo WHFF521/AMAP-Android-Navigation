@@ -13,7 +13,7 @@
 
 我下载的是导航合包：
 
-![SDK](/images/Android/gaodeSDK.png)  
+![SDK](./images/Android/gaodeSDK.png)  
 
 ## 2. 创建项目 
 
@@ -21,11 +21,11 @@
 
 设置里需要设置生成所有Gradle Task：  
 
-![set generate all tasks](/images/Android/openALLTask.png)  
+![set generate all tasks](./images/Android/openALLTask.png)  
 
 这样你就可以靠点击这里直接获得你项目的SHA1的值，申请key的时候需要这个。
 
-![signing](/images/Android/signing.png)  
+![signing](./images/Android/signing.png)  
 
 点击上图位置你就可以在终端看见你的SHA1值。在我这里release和debug的SHA1的值是一样的。  
 
@@ -45,7 +45,7 @@ sourceSets {
 ```
 如图：
 
-![souceSet](/images/Android/SouceSet.png)  
+![souceSet](./images/Android/SouceSet.png)  
 
 同时下载的SDK如图放在app文件夹下的libs文件夹下。
 
@@ -113,8 +113,8 @@ sourceSets {
 
 ## 展示图 
 <div style="display: flex;gap: 10px;">
-  <img src="/images/Android/navi-mainpage.jpg" alt="description" width="300" height="600">
-  <img src="/images/Android/navigating.jpg" alt="description" width="300" height="600">
+  <img src="./images/Android/navi-mainpage.jpg" alt="description" width="300" height="600">
+  <img src="./images/Android/navigating.jpg" alt="description" width="300" height="600">
 </div>
 
 ## 相对于参考博客做的代码替换
