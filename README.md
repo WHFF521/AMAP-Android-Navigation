@@ -99,7 +99,7 @@ sourceSets {
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
-然后application下添加你的key和一个服务，之后还要建立一个activity，这里顺便一起声明了,这些和你的启动Activity是同级的：  
+然后application下添加你的key和一个服务，之后还要用到一个高德自己的activity，这里顺便一起声明了,这些和你的启动Activity是同级的：  
 
 ```xml
 <meta-data android:name="com.amap.api.v2.apikey" android:value="你的key">
@@ -148,6 +148,37 @@ import android.Manifest;
 ```
 
 其他应该没有什么变化。
+## MainActivity
+
+这是这个project中的核心文件，其中按钮绑定的跳转函数那里是重点：
+
+```java
+findViewById(R.id.btnGotoNavi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 无起终点启动导航
+                AmapNaviParams params = new AmapNaviParams(null, null, null, AmapNaviType.DRIVER, AmapPageType.ROUTE);
+                AmapNaviPage.getInstance().showRouteActivity(getApplicationContext(), params, null);
+            }
+        });
+```
+
+这里直接跳转到高德包里的一个activity中，可以进行导航等行为，这个是调用`AmapRouteActivity`，之前已在manifest中声明。当然也可以进行有起终点启动导航。[官网文档](https://lbs.amap.com/api/android-navi-sdk/guide/navi-component/basic-functions)
+
+```java
+//起点
+Poi start = new Poi("北京首都机场", new LatLng(40.080525,116.603039), "B000A28DAE");
+//途经点
+List<Poi> poiList = new ArrayList();
+poiList.add(new Poi("故宫", new LatLng(39.918058,116.397026), "B000A8UIN8"));
+//终点
+Poi end = new Poi("北京大学", new LatLng(39.941823,116.426319), "B000A816R6");
+// 组件参数配置
+AmapNaviParams params = new AmapNaviParams(start, poiList, end, AmapNaviType.DRIVER, AmapPageType.ROUTE);  
+// 启动组件
+AmapNaviPage.getInstance().showRouteActivity(getApplicationContext(), params, null);
+
+```
 
 ## 记录开发环境和调试手机
 
