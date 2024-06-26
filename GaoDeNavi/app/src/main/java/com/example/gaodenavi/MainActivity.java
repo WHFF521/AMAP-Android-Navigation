@@ -1,7 +1,5 @@
 package com.example.gaodenavi;
 
-
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.CameraUpdateFactory;
+
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.MapsInitializer;
 import com.amap.api.maps.model.MyLocationStyle;
@@ -59,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
             mMapView.onCreate(savedInstanceState);
             aMap = mMapView.getMap();
         }
-    }
-    public void gotoNavi(View view) {
-        // Start the SearchActivity without finishing the current activity
-        Intent intent = new Intent(this, SearchActivity.class);
-        startActivity(intent);
     }
     private void configureMap() {
         if (aMap == null) return;
